@@ -31,6 +31,18 @@ app.post("/api/messages", (req, res) => {
   res.status(201).json(newMessage);
 });
 
+app.delete("/api/messages/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const index = messages.findIndex((msg) => msg.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ error: "Message not found" });
+  }
+
+  messages.splice(index, 1);
+  res.status(204).end();
+});
+
 app.listen(PORT, () => {
   console.log(`Guestbook server running at http://localhost:${PORT}`);
 });

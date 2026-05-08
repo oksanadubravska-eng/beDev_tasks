@@ -26,12 +26,28 @@ function renderMessages(messages) {
     .map(
       (msg) => `
         <li>
+          <button class="delete-btn" data-id="${msg.id}" aria-label="Delete message">×</button>
           <div class="message-author">${escapeHtml(msg.name)}</div>
           <div class="message-text">${escapeHtml(msg.message)}</div>
         </li>
       `
     )
     .join("");
+
+  document.querySelectorAll(".delete-btn").forEach((btn) => {
+    btn.addEventListener("click", () => deleteMessage(btn.dataset.id));
+  });
+}
+
+async function deleteMessage(id) {
+  try {
+    const response = await fetch(`/api/messages/${id}`, { method: "DELETE" });
+    if (!response.ok) throw new Error("Failed to delete");
+    await loadMessages();
+  } catch (error) {
+    console.error("Delete failed:", error);
+    alert("Could not delete message. Please try again.");
+  }
 }
 
 function escapeHtml(text) {

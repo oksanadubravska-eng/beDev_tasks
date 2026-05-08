@@ -112,11 +112,36 @@ h2 {
 }
 
 #messages-list li {
+  position: relative;
   background: white;
   border: 1px solid #eee;
   border-radius: 10px;
-  padding: 0.9rem 1rem;
+  padding: 0.9rem 2.5rem 0.9rem 1rem;
   margin-bottom: 0.6rem;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: #aaa;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.delete-btn:hover {
+  background: #fee;
+  color: #c00;
 }
 
 #messages-list li.empty-state {
