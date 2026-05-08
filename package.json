@@ -1,0 +1,24 @@
+{
+  "name": "guestbook",
+  "version": "1.0.0",
+  "description": "A tiny guestbook web app built with Node.js and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oksanadubravska-eng/beDev_tasks.git"
+  },
+  "keywords": [
+    "guestbook",
+    "express",
+    "nodejs"
+  ],
+  "author": "Oksana",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
